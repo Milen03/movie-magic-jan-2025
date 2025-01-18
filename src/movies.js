@@ -10,5 +10,11 @@ export default [
         genre: 'Superhero',
         description: 'An alien child is evacuated from his dying world and sent to Earth to live among humans. His peace is threatened when other survivors of his home planet invade Earth.',
         imageUrl: 'https://m.media-amazon.com/images/M/MV5BMTk5ODk1NDkxMF5BMl5BanBnXkFtZTcwNTA5OTY0OQ@@._V1_.jpg'
+    },
+    {
+        title: 'Под прикритие',
+        genre: 'Crime',
+        description: 'Trained young policeman goes undercover in the gang of the most dangerous mafia boss in Bulgaria.',
+        imageUrl: 'https://www.vivacom.bg/web/files/arena/630/image/thumb_388x564_%D0%9F%D0%BE%D0%B4%20%D0%BF%D1%80%D0%B8%D0%BA%D1%80%D0%B8%D1%82%D0%B8%D0%B5.jpg'
     }
 ]
