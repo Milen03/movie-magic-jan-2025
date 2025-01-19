@@ -1,9 +1,24 @@
 import { Router } from "express";
+import movieSevice from "../services/movie-sevice.js";
 
 const movieController = Router()
 
-movieController.get('/create',(req,res)=>{
+movieController.get('/create', (req, res) => {
     res.render('create',)
 })
 
- export default movieController
+movieController.post('/create', (req, res) => {
+    const newMovie = req.body
+
+    res.end()
+})
+
+movieController.get('/:movieId/details', (req, res) => {
+    const movieId = req.params.movieId
+    //Get movie data for movieId
+    const movie = movieSevice.findMovie(movieId)
+
+    res.render('details', { movie })
+})
+
+export default movieController
