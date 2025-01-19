@@ -14,7 +14,7 @@ export default [
         imageUrl: 'https://m.media-amazon.com/images/M/MV5BMTk5ODk1NDkxMF5BMl5BanBnXkFtZTcwNTA5OTY0OQ@@._V1_.jpg',
         directror: 'Zack Snyder',
         year: '2013',
-        rating: '6.6',
+        rating: 6.6,
         category: 'Superhero'
     },
     {
@@ -25,7 +25,7 @@ export default [
         imageUrl: 'https://www.vivacom.bg/web/files/arena/630/image/thumb_388x564_%D0%9F%D0%BE%D0%B4%20%D0%BF%D1%80%D0%B8%D0%BA%D1%80%D0%B8%D1%82%D0%B8%D0%B5.jpg',
         directror: 'Emil Koshlukov',
         year: '2011',
-        rating: '7.1',
+        rating: 7.1,
         category: 'Reviews'
     }
 ]

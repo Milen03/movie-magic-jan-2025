@@ -2,11 +2,15 @@ import express from 'express'
 import handlebars from 'express-handlebars'
 
 import routes from './routes.js'
+import showRating from './helpers/reting-helper.js'
 
 const app = express()
 
 app.engine('hbs',handlebars.engine({
-    extname: 'hbs'
+    extname: 'hbs',
+    helpers:{
+        showRating
+    }
 }))
 
 app.set('view engine','hbs')
