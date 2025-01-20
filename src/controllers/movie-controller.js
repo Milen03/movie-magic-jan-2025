@@ -4,7 +4,9 @@ import movieSevice from "../services/movie-sevice.js";
 const movieController = Router()
 
 movieController.get('/search',(req,res)=>{
-    res.render('search')
+    const filter = req.query
+    const movies = movieSevice.getAll(filter)
+    res.render('search', { movies,filter })
 })
 
 movieController.get('/create', (req, res) => {
