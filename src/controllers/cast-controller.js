@@ -1,10 +1,19 @@
  import { Router } from "express";
+import castService from "../services/cast-service.js";
 
- const router = Router()
+ const castController = Router()
 
-router.get('/create',(req,res) =>{
+castController.get('/create',(req,res) =>{
     res.render('cast/create')
 })
 
+castController.post('/create',async (req,res)=>{
+    const castData = req.body
 
- export default router
+   await castService.create(castData)
+
+res.redirect('/')
+})
+
+
+ export default castController
