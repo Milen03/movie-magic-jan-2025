@@ -12,8 +12,12 @@ const userData = req.body
 
 await authService.register(userData)
 
-res.end()
+res.redirect('/auth/login')
 
+})
+
+authController.get('/login',(req,res)=>{
+    res.render('auth/login')
 })
 
 export default authController
