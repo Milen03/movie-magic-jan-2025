@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 
 import routes from './routes.js'
 import showRating from './helpers/reting-helper.js'
+import { authMiddlewares } from './middlewares/auth-middlewares.js'
 
 const app = express()
 
@@ -36,6 +37,7 @@ app.set('views','./src/views')
 app.use('/static',express.static('src/public'))
 app.use(express.urlencoded({extended: false}))  //learn express to parse form data 
 app.use(cookieParser())
+app.use(authMiddlewares)
 
 //setup routs
 app.use(routes)
