@@ -10,15 +10,15 @@ export const authMiddlewares = (req, res, next) => {
     //validata token
     try {
         const decodedToken = jwt.verify(token, SECRET)
- //Attach decoded token to request
+        //Attach decoded token to request
 
- req.user = decodedToken
+        req.user = decodedToken
         next()
     } catch (err) {
-        console.log(err.message);
-
+        res.clearCookie('auth')
+        res.redirect('auth/login')
     }
 
-   
+
 
 }
