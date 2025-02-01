@@ -25,15 +25,15 @@ export default {
 
         return result
     },
-    getOneWithCasts(movieId){
-       return this.getOne(movieId).populate('casts')
+    getOneWithCasts(movieId) {
+        return this.getOne(movieId).populate('casts')
     },
-    create(movieData,creatorId) {
+    create(movieData, creatorId) {
         const result = Movie.create({
             ...movieData,
             rating: Number(movieData.rating),
             year: Number(movieData.year),
-            creator: creatorId  
+            creator: creatorId
         })
 
 
@@ -51,5 +51,8 @@ export default {
 
         return Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
 
+    },
+    delete(movieId) {
+        return Movie.findByIdAndDelete(movieId)
     }
 }
