@@ -33,11 +33,10 @@ export default {
             ...movieData,
             rating: Number(movieData.rating),
             year: Number(movieData.year),
-            creator: creatorId
-        })
+            creator: creatorId,
+        });
 
-
-        return result
+        return result;
     },
     async attachCast(movieId, castId) {
         // const movie = await Movie.findById(movieId)

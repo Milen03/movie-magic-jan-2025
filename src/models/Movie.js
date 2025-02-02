@@ -8,7 +8,7 @@ const movieSchema = new Schema({
     director: String,
     year: Number,
     imageUrl: String,
-    rating:Number,
+    rating: Number,
     description: String,
     casts:[{
         type:Types.ObjectId,
