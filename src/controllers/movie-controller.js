@@ -37,7 +37,7 @@ movieController.get('/:movieId/attach-cast', async (req, res) => {
     const casts = await castService.getAll({ exclude: movie.casts })
 
 
-    res.render('movie/attach-cast', { movie, casts,})
+    res.render('movie/attach-cast', { movie, casts, })
 })
 
 movieController.post('/:movieId/attach-cast', async (req, res) => {
@@ -47,12 +47,12 @@ movieController.post('/:movieId/attach-cast', async (req, res) => {
 
     res.redirect(`/movies/${movieId}/details`)
 })
-movieController.get('/:movieId/delete',async (req,res)=>{
+movieController.get('/:movieId/delete', async (req, res) => {
     const movieId = req.params.movieId
 
     const movie = await movieSevice.getOne(movieId)
 
-    if(movie.creator && movie.creator.toString() !== req.user.id){
+    if (movie.creator && movie.creator.toString() !== req.user.id) {
         return res.redirect('/404')
     }
 
@@ -61,13 +61,21 @@ movieController.get('/:movieId/delete',async (req,res)=>{
     res.redirect('/')
 })
 
-movieController.get('/:movieId/edit',async(req,res) =>{
+movieController.get('/:movieId/edit', async (req, res) => {
     const movieId = req.params.movieId
     const movie = await movieSevice.getOne(movieId)
 
     const categories = getCategoriesViewData(movie.category)
 
-    res.render('movie/edit',{movie,categories})
+    res.render('movie/edit', { movie, categories })
+})
+
+movieController.post('/:movieId/edit', async(req, res) => {
+    const movieData = req.body
+    const movieId = req.params.movieId
+await movieSevice.updata(movieId,movieData)
+
+res.redirect(`/movies/${movieId}/details`)
 })
 
 function getCategoriesViewData(category) {
@@ -78,7 +86,7 @@ function getCategoriesViewData(category) {
         'documentary': 'Documentary',
         'short-film': 'Short Film',
     }
-    const categories = Object.keys(categoriesMap).map(value =>({
+    const categories = Object.keys(categoriesMap).map(value => ({
         value,
         label: categoriesMap[value],
         selected: value === category ? 'selected' : '',
